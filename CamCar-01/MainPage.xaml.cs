@@ -32,7 +32,6 @@ namespace CamCar_01
         //xxx Matvey = new xxx();
         public MainPage()
         {
-            while (true) { }
                      _cam.Initialize();
                        _gpio1.Initialize(true, 11, 100, 0);
                      _gpio2.Initialize(true, 12, 100, 0);
