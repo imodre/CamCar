@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+
 public abstract class LineResearching
 {
     private Image currentFrame;
@@ -44,21 +46,82 @@ public abstract class LineResearching
     }
     #endregion
 }
-public static class FourSideAlgorithm : LineResearching
+public static class AllSideAlgorithm : LineResearching
 {
-    public override float GetAngle()
+    public static int threshold;
+    public static int width;
+    public static int height;
+
+    public override float GetAngle(int[,] grid)
     {
-        return f;
+
     }
-}
-public static class LineUpToEnd : LineResearching
-{
-    public override float GetAngle()
+    public override float GetAngle(int[,] grid, int side)
     {
-        return f;
+
     }
-    public override float GetAngle(float f)
+    private static int ScanSide(int[,] grid, int side)
     {
-        return f + 1f;
+        int start = -1;
+        int end = -1;
+        switch (side)
+        {
+            case 1:
+                for (int i = 0; i < grid.GetLength(1); i++)
+                {
+                    if (grid[0, i] > threshold && start == -1)
+                        start = i;
+                    else if (grid[0, i] <= threshold && start != -1)
+                    {
+                        end = i - 1;
+                        break;
+                    }
+                }
+                end = grid.GetLength(1) - 1;
+                break;
+            case 2:
+                for (int i = 0; i < grid.GetLength(0); i++)
+                {
+                    if (grid[i, grid.GetLength(1) - 1] > threshold && start == -1)
+                        start = i;
+                    else
+                    {
+                        end = i - 1;
+                        break;
+                    }
+                }
+                end = grid.GetLength(0) - 1;
+                break;
+            case 3:
+                for (int i = 0; i < grid.GetLength(1); i++)
+                {
+                    if (grid[grid.GetLength(0) - 1, i] > threshold && start == -1)
+                        start = i;
+                    else if (grid[grid.GetLength(0) - 1, i] <= threshold && start != -1)
+                    {
+                        end = i - 1;
+                        break;
+                    }
+                }
+                end = grid.GetLength(1) - 1;
+                break;
+            case 0:
+                for (int i = 0; i < grid.GetLength(0); i++)
+                {
+                    if (grid[i, 0] > threshold && start == -1)
+                        start = i;
+                    else if (grid[i, 0] <= threshold && start != -1)
+                    {
+                        end = i - 1;
+                        break;
+                    }
+                }
+                end = grid.GetLength(0) - 1;
+                break;
+        }
+        if (start != -1)
+            return end - start;
+        else
+            return -1;
     }
 }
