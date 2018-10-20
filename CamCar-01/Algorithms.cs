@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections;
 
-public abstract class LineResearching
+public abstract class LineResearching   
 {
-    private Image currentFrame;
     protected byte[,] GetPixelMatrix()
     {
         return new byte[0, 0];
     }
     public abstract float GetAngle();
     #region Utilities
-    private static byte[] FromImageToArray(Image imageIn)
+    /*private static byte[] FromImageToArray(Image imageIn)
     {
         MemoryStream ms = new MemoryStream();
         imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
         return ms.ToArray();
-    }
+    }*/
     private static byte[,] From1DArrayTo2DArray(byte[] input)
     {
         byte[,] result = new byte[320, 240];
@@ -40,23 +39,23 @@ public abstract class LineResearching
         }
         return result;
     }
-    private static Image FromArrayToImage(byte[] input)
+    /*private static Image FromArrayToImage(byte[] input)
     {
         return (Bitmap)((new ImageConverter()).ConvertFrom(input));
-    }
+    }*/
     #endregion
 }
-public static class AllSideAlgorithm : LineResearching
+public static class AllSideAlgorithm
 {
     public static int threshold;
     public static int width;
     public static int height;
 
-    public override float GetAngle(int[,] grid)
+    public static float GetAngle(int[,] grid)
     {
 
     }
-    public override float GetAngle(int[,] grid, int side)
+    public static float GetAngle(int[,] grid, int side)
     {
 
     }
