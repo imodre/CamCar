@@ -27,49 +27,81 @@ namespace CamCar_01
     {
         private static IAsyncAction workItemThread;
         GPIO _gpio1 = new GPIO();
-        GPIO _gpio2 = new GPIO();
-        Cam _cam = new Cam();
+       // GPIO _gpio2 = new GPIO();
+       // Cam _cam = new Cam();
         //xxx Matvey = new xxx();
         public MainPage()
         {
-                     _cam.Initialize();
+         //            _cam.Initialize();
                        _gpio1.Initialize(true, 11, 100, 0);
-                     _gpio2.Initialize(true, 12, 100, 0);
+                  //   _gpio2.Initialize(true, 12, 100, 0);
             // Matvey.Initialize();
             this.InitializeComponent();
-            PreviewControl.Source = _cam._mediaCapture;
-            _cam.Initialize2();
+            Unloaded += MainPage_Unloaded;
+            // PreviewControl.Source = _cam._mediaCapture;
+            // _cam.Initialize2();
             workItemThread = Windows.System.Threading.ThreadPool.RunAsync(
-              (source) =>
-                            {
-                               CamInteract();
-                            }, Windows.System.Threading.WorkItemPriority.High);
+                  (source) =>
+                              {
+            //CamInteract();
+                                SerialTest();
+                          }, Windows.System.Threading.WorkItemPriority.High);
+           // _gpio1.SerialSend("255;255;.");
         }
+
+        private void MainPage_Unloaded(object sender, object args)
+            {
+            _gpio1.SerialSend("0;0;.");
+        }
+
+        void SerialTest()
+        {
+            string dat = "";
+            int first = 0;
+            int second = 0;
+         //   while (true)
+           // {
+           
+                while (first < 255)
+                {
+                    System.Threading.Thread.Sleep(50);
+                    first += 1;
+                    second += 1;
+                    
+                    dat = Convert.ToString(first) + ";" + Convert.ToString(second) + ";.";
+                    _gpio1.SerialSend(dat);
+                }
+           
+            dat = Convert.ToString(255) + ";" + Convert.ToString(255) + ";.";
+                _gpio1.SerialSend(dat);
+            //}
+        }
+
         async void CamInteract()
         {
             while (true)
             {
-                byte[,] massiv = await _cam.GetPixels();
+           //     byte[,] massiv = await _cam.GetPixels();
         //        double angle = Matvey.LineSearch(massiv); 
           //      AngleConvert(angle);
             }
         }
 
-        void AngleConvert(double k)
+    /*    void AngleConvert(double k)
         {
             if (k > 0) { _gpio1.UpdatePWM(100); _gpio2.UpdatePWM(100 - k); }
             else if (k < 0) { _gpio2.UpdatePWM(100); _gpio1.UpdatePWM(100 - k); }
             else { _gpio1.UpdatePWM(100); _gpio2.UpdatePWM(100); }
-        }
+        } */
 
         private async void btn1_Click(object sender, RoutedEventArgs e)
         {
-                  await  _cam._mediaCapture.StartPreviewAsync();
+             //     await  _cam._mediaCapture.StartPreviewAsync();
         }
 
         private async void btn2_Click(object sender, RoutedEventArgs e)
         {
-            await _cam._mediaCapture.StopPreviewAsync();
+        //    await _cam._mediaCapture.StopPreviewAsync();
         }
 
         private async void btn3_Click(object sender, RoutedEventArgs e)
@@ -78,15 +110,15 @@ namespace CamCar_01
             StorageFile storageFile = await storageFolder.CreateFileAsync("line.txt", CreationCollisionOption.OpenIfExists);
 
 
-            byte[,] massiv = await _cam.GetPixels();
+         //   byte[,] massiv = await _cam.GetPixels();
                 string line = "";
             for (int i = 0; i < 240; i++)
                 {
                     for (int j = 0; j < 320; j++)
                     {
-                        if (massiv[j, i] < 127) line += "■";
-                        else
-                         line += "□";
+           //             if (massiv[j, i] < 127) line += "■";
+                     //   else
+                       //  line += "□";
                     }
                     line += "\r\n";
                 }

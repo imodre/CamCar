@@ -51,14 +51,14 @@ public static class AllSideAlgorithm
     public static int width;
     public static int height;
 
-    public static float GetAngle(int[,] grid)
+  /*  public static float GetAngle(int[,] grid)
     {
 
     }
     public static float GetAngle(int[,] grid, int side)
     {
 
-    }
+    }*/
     private static int ScanSide(int[,] grid, int side)
     {
         int start = -1;

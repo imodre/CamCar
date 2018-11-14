@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
   <Identity Name="350b91de-9c97-448f-ae7b-b02de0733bb9" Publisher="CN=btima" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="350b91de-9c97-448f-ae7b-b02de0733bb9" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
@@ -22,10 +22,16 @@
       </uap:VisualElements>
     </Application>
   </Applications>
-  <Capabilities>
+  <Capabilities> 
     <Capability Name="internetClient" />
     <Capability Name="internetClientServer" />
     <DeviceCapability Name="webcam" />
     <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="serialcommunication">
+      <Device Id="any">
+        <Function Type="name:serialPort" />
+      </Device>
+    </DeviceCapability>
   </Capabilities>
+
 </Package>

@@ -131,7 +131,7 @@ namespace CamCar_01
                 if (serialPort == null) return;
                 serialPort.WriteTimeout = TimeSpan.FromMilliseconds(1000);
                 serialPort.ReadTimeout = TimeSpan.FromMilliseconds(1000);
-                serialPort.BaudRate = 9600;
+                serialPort.BaudRate = 115200;
                 serialPort.Parity = SerialParity.None;
                 serialPort.StopBits = SerialStopBitCount.One;
                 serialPort.DataBits = 8;
@@ -159,6 +159,7 @@ namespace CamCar_01
             }
             catch
             {
+                System.Diagnostics.Debug.WriteLine("ex");
             }
             finally
             {
@@ -185,7 +186,6 @@ namespace CamCar_01
                 UInt32 bytesWritten = await storeAsyncTask;
             }
         }
-
       
         public void Dispose()
         {

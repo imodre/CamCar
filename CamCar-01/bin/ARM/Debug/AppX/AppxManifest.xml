@@ -17,7 +17,7 @@
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17134.0" MaxVersionTested="10.0.17134.0" />
     <PackageDependency Name="Microsoft.NET.CoreRuntime.2.1" MinVersion="2.1.26124.5" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
-    <PackageDependency Name="Microsoft.VCLibs.140.00.Debug" MinVersion="14.0.26428.1" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+    <PackageDependency Name="Microsoft.VCLibs.140.00.Debug" MinVersion="14.0.26726.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
   </Dependencies>
   <Resources>
     <Resource Language="RU-RU" />
@@ -35,105 +35,110 @@
     <Capability Name="internetClientServer" />
     <DeviceCapability Name="webcam" />
     <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="serialcommunication">
+      <Device Id="any">
+        <Function Type="name:serialPort" />
+      </Device>
+    </DeviceCapability>
   </Capabilities>
   <Extensions>
     <Extension Category="windows.activatableClass.inProcessServer">
       <InProcessServer>
         <Path>CamCar-01.exe</Path>
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.EmptyEventArgs" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Microsoft_IoT_DeviceCore_XamlTypeInfo.XamlMetaDataProvider" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.DispatcherExtensions" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Pwm.PwmProviderManager" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Controls.GraphicsDisplayPanel" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Display.GraphicsTools" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.ScheduleOptions" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.GpioExtensions" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Sensors.AnalogSensorReadingChangedEventArgs" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Sensors.AnalogSensorReading" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Sensors.TemperatureReading" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Scheduler" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Input.ThumbstickReadingChangedEventArgs" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Input.ThumbstickReading" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Input.RotaryEncoderRotatedEventArgs" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Adc.AdcProviderManager" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.ScheduledUpdater" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Adc.MCP3208" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Adc.MCP3008" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Adc.ADC0832" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Sensors.AnalogSensor" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Sensors.MCP970X" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Display.SSD1306" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Controls.GraphicsDisplayPanel" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Adc.AdcProviderManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.DispatcherExtensions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.GpioExtensions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Display.GraphicsTools" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Pwm.PwmProviderManager" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Scheduler" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Input.RotaryEncoderRotatedEventArgs" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Input.ThumbstickReading" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Input.ThumbstickReadingChangedEventArgs" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Sensors.TemperatureReading" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Sensors.AnalogSensorReading" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Sensors.AnalogSensorReadingChangedEventArgs" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.Microsoft_IoT_DeviceCore_XamlTypeInfo.XamlMetaDataProvider" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.EmptyEventArgs" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.DeviceCore.ScheduleOptions" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Display.ST7735" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Display.ADA938" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Lights.RgbLed" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Input.RotaryEncoder" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Display.SSD1306" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Pwm.SoftPwm" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Pwm.PCA9685" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Input.Switch" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Input.RotaryEncoder" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Input.SS944" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Input.PushButton" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Pwm.PCA9685" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Pwm.SoftPwm" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Pressure" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Acceleration" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.ForceChangeRate" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.DynamicViscosity" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.FeetInches" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Force" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Density" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.PowerRatio" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Mass" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.UnitSystem" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Length" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Temperature" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.CustomCode.Extensions.PowerExtensions" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.CustomCode.Extensions.PowerRatioExtensions" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.CustomCode.Extensions.ElectricPotentialExtensions" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.CustomCode.Extensions.AmplitudeRatioExtensions" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.ElectricPotentialAc" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.RotationalSpeed" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.ReactivePower" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Energy" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Information" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.ElectricPotentialDc" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.ForcePerLength" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Speed" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.SpecificWeight" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Flow" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.BrakeSpecificFuelConsumption" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.TemperatureDelta" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.MassFlow" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Sensors.AnalogSensor" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Sensors.MCP970X" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Lights.RgbLed" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Adc.MCP3008" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Adc.ADC0832" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Devices.Adc.MCP3208" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="UnitsNet.Area" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.TemperatureChangeRate" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.ElectricPotential" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Power" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="UnitsNet.StonePounds" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.ElectricCurrent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.ForcePerLength" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="UnitsNet.ElectricResistance" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Angle" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Duration" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Frequency" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.ApparentPower" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.PressureChangeRate" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.DynamicViscosity" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.PowerRatio" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Energy" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="UnitsNet.SpecificEnergy" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Ratio" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.ElectricAdmittance" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Level" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.ReactivePower" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.CustomCode.Extensions.AmplitudeRatioExtensions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.CustomCode.Extensions.PowerExtensions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.CustomCode.Extensions.ElectricPotentialExtensions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.CustomCode.Extensions.PowerRatioExtensions" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.PressureChangeRate" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Speed" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.TemperatureChangeRate" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.TemperatureDelta" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.ElectricPotentialDc" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Mass" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Information" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="UnitsNet.Torque" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.Volume" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="UnitsNet.VitaminA" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="UnitsNet.KinematicViscosity" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.SpecificWeight" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Length" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.MassFlow" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Frequency" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.FeetInches" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Level" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.ElectricCurrent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.ElectricAdmittance" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="UnitsNet.AmplitudeRatio" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.VitaminA" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Density" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.ApparentPower" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Force" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Flow" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Volume" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Temperature" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Angle" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.RotationalSpeed" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.BrakeSpecificFuelConsumption" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.ForceChangeRate" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Ratio" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Duration" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Power" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Acceleration" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.UnitSystem" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.ElectricPotential" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.Pressure" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="UnitsNet.ElectricPotentialAc" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
     <Extension Category="windows.activatableClass.inProcessServer">
       <InProcessServer>
         <Path>Microsoft.IoT.Lightning.Providers.dll</Path>
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Lightning.Providers.LightningProvider" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Lightning.Providers.LightningI2cProvider" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Lightning.Providers.LightningAdcProvider" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Microsoft.IoT.Lightning.Providers.LightningSpiProvider" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Microsoft.IoT.Lightning.Providers.LightningPwmProvider" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Microsoft.IoT.Lightning.Providers.LightningProvider" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Microsoft.IoT.Lightning.Providers.Dummy" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Lightning.Providers.LightningAdcProvider" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Microsoft.IoT.Lightning.Providers.LightningGpioProvider" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Microsoft.IoT.Lightning.Providers.LightningI2cProvider" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
   </Extensions>
@@ -141,12 +146,12 @@
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="15.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2017" />
-    <build:Item Name="OperatingSystem" Version="10.0.17134.343 (WinBuild.160101.0800)" />
-    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="15.0.27703.2026" />
+    <build:Item Name="OperatingSystem" Version="10.0.14393.0 (rs1_release.160715-1616)" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="15.0.28010.2016" />
     <build:Item Name="ProjectGUID" Value="{4C7DB8B7-F117-42C0-A465-02772C5BCB1A}" />
     <build:Item Name="OptimizingToolset" Value="None" />
     <build:Item Name="TargetRuntime" Value="Managed" />
-    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="15.0.27703.2026" />
+    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="15.0.28010.2016" />
     <build:Item Name="WindowsIoT" Version="10.0.17134.0" />
     <build:Item Name="UseDotNetNativeSharedAssemblyFrameworkPackage" Value="true" />
     <build:Item Name="MakePri.exe" Version="10.0.17134.12 (WinBuild.160101.0800)" />
