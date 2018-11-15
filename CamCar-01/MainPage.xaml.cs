@@ -59,22 +59,43 @@ namespace CamCar_01
             string dat = "";
             int first = 0;
             int second = 0;
-         //   while (true)
-           // {
+            while (true)
+            {
            
                 while (first < 255)
                 {
-                    System.Threading.Thread.Sleep(50);
+                    System.Threading.Thread.Sleep(40);
                     first += 1;
-                    second += 1;
                     
                     dat = Convert.ToString(first) + ";" + Convert.ToString(second) + ";.";
                     _gpio1.SerialSend(dat);
                 }
-           
-            dat = Convert.ToString(255) + ";" + Convert.ToString(255) + ";.";
-                _gpio1.SerialSend(dat);
-            //}
+                while (second < 255)
+                {
+                    System.Threading.Thread.Sleep(40); 
+                    second += 1;
+
+                    dat = Convert.ToString(first) + ";" + Convert.ToString(second) + ";.";
+                    _gpio1.SerialSend(dat);
+                }
+                while (first > 0)
+                {
+                    System.Threading.Thread.Sleep(40);
+                    first -= 1;
+
+                    dat = Convert.ToString(first) + ";" + Convert.ToString(second) + ";.";
+                    _gpio1.SerialSend(dat);
+                }
+                while (second > 0)
+                {
+                    System.Threading.Thread.Sleep(40);
+                    second -= 1;
+
+                    dat = Convert.ToString(first) + ";" + Convert.ToString(second) + ";.";
+                    _gpio1.SerialSend(dat);
+                }
+
+           }
         }
 
         async void CamInteract()

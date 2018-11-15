@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Рекурсия\Source\Repos\CamCar\CamCar-01\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-11-14T07:51:42.253</Modified>
+      <Modified>2018-11-15T08:22:26.974</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Рекурсия\Source\Repos\CamCar\CamCar-01\bin\ARM\Debug\CamCar-01.exe">
       <PackagePath>entrypoint\CamCar-01.exe</PackagePath>
-      <Modified>2018-11-14T07:51:39.865</Modified>
+      <Modified>2018-11-15T08:22:24.837</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Рекурсия\.nuget\packages\magellanic.servocontroller\0.0.3-alpha\lib\.NETCore50\Magellanic.ServoController.dll">
       <PackagePath>Magellanic.ServoController.dll</PackagePath>
@@ -787,11 +787,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Рекурсия\Source\Repos\CamCar\CamCar-01\bin\ARM\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-11-14T07:51:39.335</Modified>
+      <Modified>2018-11-15T08:22:24.426</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Рекурсия\Source\Repos\CamCar\CamCar-01\bin\ARM\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-11-14T07:51:39.335</Modified>
+      <Modified>2018-11-15T08:22:24.427</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -848,7 +848,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Рекурсия\Source\Repos\CamCar\CamCar-01\bin\ARM\Debug\Core\CamCar-01.exe">
       <PackagePath>CamCar-01.exe</PackagePath>
-      <Modified>2018-11-14T07:51:42.237</Modified>
+      <Modified>2018-11-15T08:22:26.958</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
