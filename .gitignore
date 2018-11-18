@@ -332,3 +332,12 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+
+
+CamCar-01/Properties/
+CamCar-01/bin/
+CamCar-01/obj/
+*.csproj
+*.user
+*.pfx
