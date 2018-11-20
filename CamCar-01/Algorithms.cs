@@ -62,9 +62,9 @@ public static class AllSideAlgorithm
                 case 1:
                     for (int i = 0; i < grid.GetLength(1); i++)
                     {
-                        if (grid[0, i] > threshold && start == -1)
+                        if (grid[0, i] < threshold && start == -1)
                             start = i;
-                        else if (grid[0, i] <= threshold && start != -1)
+                        else if (grid[0, i] >= threshold && start != -1)
                         {
                             end = i - 1;
                             break;
@@ -76,9 +76,9 @@ public static class AllSideAlgorithm
                 case 2:
                     for (int i = 0; i < grid.GetLength(0); i++)
                     {
-                        if (grid[i, grid.GetLength(1) - 1] > threshold && start == -1)
+                        if (grid[i, grid.GetLength(1) - 1] < threshold && start == -1)
                             start = i;
-                        else
+                        else if (grid[i, grid.GetLength(1) - 1] >= threshold && start != -1)
                         {
                             end = i - 1;
                             break;
@@ -90,9 +90,9 @@ public static class AllSideAlgorithm
                 case 3:
                     for (int i = 0; i < grid.GetLength(1); i++)
                     {
-                        if (grid[grid.GetLength(0) - 1, i] > threshold && start == -1)
+                        if (grid[grid.GetLength(0) - 1, i] < threshold && start == -1)
                             start = i;
-                        else if (grid[grid.GetLength(0) - 1, i] <= threshold && start != -1)
+                        else if (grid[grid.GetLength(0) - 1, i] >= threshold && start != -1)
                         {
                             end = i - 1;
                             break;
@@ -104,9 +104,9 @@ public static class AllSideAlgorithm
                 case 0:
                     for (int i = 0; i < grid.GetLength(0); i++)
                     {
-                        if (grid[i, 0] > threshold && start == -1)
+                        if (grid[i, 0] < threshold && start == -1)
                             start = i;
-                        else if (grid[i, 0] <= threshold && start != -1)
+                        else if (grid[i, 0] >= threshold && start != -1)
                         {
                             end = i - 1;
                             break;
@@ -116,7 +116,7 @@ public static class AllSideAlgorithm
                     break;
             }
             if (start != -1)
-                return end - start;
+                return start + (end - start) / 2;
             else
                 return -1;
         }
