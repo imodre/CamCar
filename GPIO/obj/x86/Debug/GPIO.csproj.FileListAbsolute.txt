@@ -1,1 +1,0 @@
-c:\users\btima\source\repos\CamCar-01\GPIO\obj\x86\Debug\GPIO.csprojAssemblyReference.cache
