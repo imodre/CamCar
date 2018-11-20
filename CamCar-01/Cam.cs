@@ -23,21 +23,21 @@ namespace CamCar_01
     {
        public Windows.Media.Capture.MediaCapture _mediaCapture = new Windows.Media.Capture.MediaCapture();
         
-        async public void Initialize()
+        public void Initialize()
         {
             (App.Current as App).MediaCapture = _mediaCapture;
 
-            await _mediaCapture.InitializeAsync();
+            _mediaCapture.InitializeAsync();
         } 
-         public async void Initialize2()
+         public void Initialize2()
         {
             var VideoModesList = _mediaCapture.VideoDeviceController.GetAvailableMediaStreamProperties(MediaStreamType.VideoPreview).ToArray();
              _mediaCapture.VideoDeviceController.SetMediaStreamPropertiesAsync(MediaStreamType.VideoPreview, VideoModesList[24]);
-           await _mediaCapture.StartPreviewAsync();
-            await _mediaCapture.StopPreviewAsync();
-            await _mediaCapture.StartPreviewAsync();
-            await   _mediaCapture.StopPreviewAsync();
-          await  _mediaCapture.StartPreviewAsync();
+           _mediaCapture.StartPreviewAsync();
+            _mediaCapture.StopPreviewAsync();
+            _mediaCapture.StartPreviewAsync();
+            _mediaCapture.StopPreviewAsync();
+           _mediaCapture.StartPreviewAsync();
         }
         public async Task<byte[,]> GetPixels()
         {

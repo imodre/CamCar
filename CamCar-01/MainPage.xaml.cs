@@ -20,6 +20,7 @@ using Windows.ApplicationModel.Background;
 using Windows.Storage;
 using System.Text;
 using System.Diagnostics;
+using Windows.UI.Core;
 
 namespace CamCar_01
 {
@@ -27,15 +28,16 @@ namespace CamCar_01
     {
         private static IAsyncAction workItemThread;
         GPIO _gpio1 = new GPIO();
-        GPIO _gpio2 = new GPIO();
+       // GPIO _gpio2 = new GPIO();
         Cam _cam = new Cam();
-        //xxx Matvey = new xxx();
+        Stopwatch delayControl = new Stopwatch();
+     
         public MainPage()
         {
                      _cam.Initialize();
                        _gpio1.Initialize(true, 11, 100, 0);
-                     _gpio2.Initialize(true, 12, 100, 0);
-            // Matvey.Initialize();
+                        delayControl.Start();
+         //            _gpio2.Initialize(true, 12, 100, 0);
             this.InitializeComponent();
             PreviewControl.Source = _cam._mediaCapture;
             _cam.Initialize2();
@@ -45,34 +47,49 @@ namespace CamCar_01
                                CamInteract();
                             }, Windows.System.Threading.WorkItemPriority.High);
         }
-        async void CamInteract()
+        void CamInteract()
         {
             while (true)
             {
-                byte[,] massiv = await _cam.GetPixels();
-        //        double angle = Matvey.LineSearch(massiv); 
-          //      AngleConvert(angle);
+                byte[,] massiv = _cam.GetPixels().Result;
+                short angle = AllSideAlgorithm.GetAngle(massiv); 
+                string data = AngleConvert(angle);
+                DebugScreenUpdate(angle, data);
             }
         }
 
-        void AngleConvert(double k)
+        string AngleConvert(short k)
         {
-            if (k > 0) { _gpio1.UpdatePWM(100); _gpio2.UpdatePWM(100 - k); }
-            else if (k < 0) { _gpio2.UpdatePWM(100); _gpio1.UpdatePWM(100 - k); }
-            else { _gpio1.UpdatePWM(100); _gpio2.UpdatePWM(100); }
+            if (k > 0) { string data = "255;" + Convert.ToString(255 - k) + ";."; delayControl.Stop(); if (delayControl.ElapsedMilliseconds >= 40) _gpio1.SerialSend(data); else { Thread.Sleep(Convert.ToInt32(40 - delayControl.ElapsedMilliseconds)); _gpio1.SerialSend(data); } delayControl.Reset(); delayControl.Start(); return data; }
+            else if (k < 0) { string data = Convert.ToString(255 - k) + ";255;."; delayControl.Stop(); if (delayControl.ElapsedMilliseconds >= 40) _gpio1.SerialSend(data); else { Thread.Sleep(Convert.ToInt32(40 - delayControl.ElapsedMilliseconds)); _gpio1.SerialSend(data); } delayControl.Reset(); delayControl.Start(); return data; }
+            else { string data = "255;255;."; delayControl.Stop(); if (delayControl.ElapsedMilliseconds >= 40) _gpio1.SerialSend(data); else { Thread.Sleep(Convert.ToInt32(40 - delayControl.ElapsedMilliseconds)); _gpio1.SerialSend(data); } delayControl.Reset(); delayControl.Start(); return data; }
         }
 
-        private async void btn1_Click(object sender, RoutedEventArgs e)
+        void DebugScreenUpdate(short _first, string _second)
+        {
+            try
+            {
+                Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { first.Text = Convert.ToString(_first); });
+                Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { second.Text = _second; });
+
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
+        private async void Btn1_Click(object sender, RoutedEventArgs e)
         {
                   await  _cam._mediaCapture.StartPreviewAsync();
         }
 
-        private async void btn2_Click(object sender, RoutedEventArgs e)
+        private async void Btn2_Click(object sender, RoutedEventArgs e)
         {
             await _cam._mediaCapture.StopPreviewAsync();
         }
 
-        private async void btn3_Click(object sender, RoutedEventArgs e)
+        private async void Btn3_Click(object sender, RoutedEventArgs e)
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
             StorageFile storageFile = await storageFolder.CreateFileAsync("line.txt", CreationCollisionOption.OpenIfExists);

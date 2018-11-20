@@ -15,10 +15,12 @@
                 
             </Grid>
             <Grid>
-                <Button x:Name="btn1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="30" Content="Start preview" Click="btn1_Click"/>
-                <Button x:Name="btn2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Content="Stop preview" Click="btn2_Click"/>
-                <Button x:Name="btn3" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="30" Content="Start draw" Click="btn3_Click"/>
+                <Button x:Name="btn1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="30" Content="Start preview" Click="Btn1_Click"/>
+                <Button x:Name="btn2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Content="Stop preview" Click="Btn2_Click"/>
+                <Button x:Name="btn3" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="30" Content="Start draw" Click="Btn3_Click"/>
             </Grid>
+            <TextBlock x:Name="first" Text=""/>
+            <TextBlock x:Name="second" Text=""/>
         </StackPanel>
     </Grid>
 </Page>
